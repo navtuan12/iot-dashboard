@@ -1,10 +1,10 @@
 import React from 'react'
-import Chart from "react-apexcharts";
+import ReactApexChart from "react-apexcharts";
 
 const ApexChart = ({data, title}) => {
     return (
         <>
-            <Chart
+            <ReactApexChart
                 sx={{position:"absolute"}}
                 type="area"
                 series={[

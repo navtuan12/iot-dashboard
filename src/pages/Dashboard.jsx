@@ -3,7 +3,11 @@ import { useState, useEffect } from "react";
 import ApexChart from "../components/Chart";
 import Card from "@mui/material/Card";
 import CardHeader from '@mui/material/CardHeader';
-import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
+import CardOverflow from '@mui/joy/CardOverflow';
+import Box from '@mui/material/Box';
+import Gauge from "../components/Gauge";
+import RadialGauge from "../components/RadialGauge";
+import CardContent from '@mui/material/CardContent';
 
 function Dashboard() {
   const [chart, setChart] = useState();
@@ -38,30 +42,48 @@ function Dashboard() {
   return (
     <div className="container">
       <div id="left" className="child-container">
-        <div className="chart-containers">
+        <div id="chart1" className="chart-containers">
           <ApexChart data={chart} title="Temperature"></ApexChart>
         </div>
-        <div className="chart-containers">
+        <div id="chart2" className="chart-containers">
           <ApexChart data={chart} title="Humidity"></ApexChart>
         </div>
       </div>
       <div id="right" className="child-container">
-        <Card className="cv-gauge-temp">
-          <CardHeader
-            title="Temperature"
-            subheader={gauge?.timestamp}
-          />
-          <Gauge data={gauge} title="Temperature" max={50} />
-        </Card>
-        <Card className="cv-gauge-humidity">
-          <CardHeader
-            title="Humidity"
-            subheader={gauge?.timestamp}
-          />
-          <CardOverflow>
-            <Gauge data={gauge} title="Humidity" max={100} />
-          </CardOverflow>
-        </Card>
+        <div id="row-1">
+          <Card className="cv-gauge-temp">
+            <CardHeader
+              title="Temperature"
+              subheader={gauge?.timestamp}
+            />
+            <Gauge data={gauge} />
+          </Card>
+          <Card className="cv-gauge-humidity" >
+            <CardHeader
+              title="Humidity"
+              subheader={gauge?.timestamp}
+            />
+            <RadialGauge data={gauge} />
+          </Card>
+        </div>
+        <div id="row-2">
+          <Card className="cv-video-stream">
+            <CardContent>
+            <video
+            autoPlay
+            loop
+            muted
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+            poster="https://assets.codepen.io/6093409/river.jpg"
+          >
+            <source
+              src="https://assets.codepen.io/6093409/river.mp4"
+              type="video/mp4"
+            />
+          </video>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
