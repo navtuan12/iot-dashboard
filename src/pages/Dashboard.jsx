@@ -49,48 +49,18 @@ function Dashboard() {
         <Card className="cv-gauge-temp">
           <CardHeader
             title="Temperature"
-            subheader="May 09 10:04:20"
+            subheader={gauge?.timestamp}
           />
-          <Gauge
-            {...settings}
-            value={gauge?.temperature}
-            valueMax={50}
-            cornerRadius="50%"
-            sx={(theme) => ({
-              [`& .${gaugeClasses.valueText}`]: {
-                fontSize: 40,
-              },
-              [`& .${gaugeClasses.valueArc}`]: {
-                fill: '#012349',
-              },
-              [`& .${gaugeClasses.referenceArc}`]: {
-                fill: theme.palette.text.disabled,
-              },
-            })}
-          />
+          <Gauge data={gauge} title="Temperature" max={50} />
         </Card>
         <Card className="cv-gauge-humidity">
           <CardHeader
             title="Humidity"
-            subheader="May 09 10:04:20"
+            subheader={gauge?.timestamp}
           />
-           <Gauge
-            {...settings}
-            value={gauge?.humidity}
-            valueMax={100}
-            cornerRadius="50%"
-            sx={(theme) => ({
-              [`& .${gaugeClasses.valueText}`]: {
-                fontSize: 40,
-              },
-              [`& .${gaugeClasses.valueArc}`]: {
-                fill: '#012349',
-              },
-              [`& .${gaugeClasses.referenceArc}`]: {
-                fill: theme.palette.text.disabled,
-              },
-            })}
-          />
+          <CardOverflow>
+            <Gauge data={gauge} title="Humidity" max={100} />
+          </CardOverflow>
         </Card>
       </div>
     </div>

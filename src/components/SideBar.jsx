@@ -10,7 +10,7 @@ function SideBar() {
     <Sidebar
       breakPoints="sm"
       transitionDuration="800"
-      style={{ height: "100vh" }}
+      style={{ height: "100vh",display: "flex", flexDirection: "column"}}
     >
       <Menu>
         <MenuItem

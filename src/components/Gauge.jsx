@@ -9,7 +9,7 @@ export default Gauge = ({ data, title, max }) => {
         <div>
             <Gauge
                 {...settings}
-                value={50}
+                value={title === "Humidity"?data?.humidity:data?.temperature}
                 valueMax={max}
                 cornerRadius="50%"
                 sx={(theme) => ({
