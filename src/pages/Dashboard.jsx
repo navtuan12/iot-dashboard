@@ -69,18 +69,18 @@ function Dashboard() {
         <div id="row-2">
           <Card className="cv-video-stream">
             <CardContent>
-            <video
-            autoPlay
-            loop
-            muted
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-            poster="https://assets.codepen.io/6093409/river.jpg"
-          >
-            <source
-              src="https://assets.codepen.io/6093409/river.mp4"
-              type="video/mp4"
-            />
-          </video>
+              {/* <video
+                autoPlay
+                loop
+                muted
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              >
+                <source
+                  src="http://100.117.47.33:8081/"f
+                  type="video/mp4"
+                /> 
+                </video>*/}
+                <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="http://100.117.47.33:8081/" alt="video stream" />
             </CardContent>
           </Card>
         </div>
