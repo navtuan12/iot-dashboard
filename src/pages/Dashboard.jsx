@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ApexChart from "../components/Chart";
 import Card from "@mui/material/Card";
 import CardHeader from '@mui/material/CardHeader';
@@ -28,7 +28,7 @@ function Dashboard() {
   useEffect(() => {
     const timer = setInterval(() => {
       fetchData();
-    }, 10000);
+    }, 5000);
     return () => {
       clearInterval(timer);
     };
@@ -38,6 +38,7 @@ function Dashboard() {
     width: 300,
     height: 200,
   };
+
 
   return (
     <div className="container">
@@ -71,16 +72,12 @@ function Dashboard() {
             <CardContent>
               {/* <video
                 autoPlay
-                loop
                 muted
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              >
-                <source
-                  src="http://100.117.47.33:8081/"f
-                  type="video/mp4"
-                /> 
-                </video>*/}
-                <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="http://100.117.47.33:8081/" alt="video stream" />
+                ref={videoRef}
+              > 
+              </video> */}
+              <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="http://192.168.1.88:5000/video_feed"  alt="video stream" />
             </CardContent>
           </Card>
         </div>
