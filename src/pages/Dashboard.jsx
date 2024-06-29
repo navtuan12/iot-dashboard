@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import Gauge from "../components/Gauge";
 import RadialGauge from "../components/RadialGauge";
 import CardContent from '@mui/material/CardContent';
+import ReactPlayer from 'react-player'
 
 function Dashboard() {
   const [chart, setChart] = useState();
@@ -70,14 +71,7 @@ function Dashboard() {
         <div id="row-2">
           <Card className="cv-video-stream">
             <CardContent>
-              {/* <video
-                autoPlay
-                muted
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                ref={videoRef}
-              > 
-              </video> */}
-              <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="http://192.168.1.88:5000/video_feed"  alt="video stream" />
+              <ReactPlayer url='http://192.168.1.88:8888/proxied' playing={true} />
             </CardContent>
           </Card>
         </div>
